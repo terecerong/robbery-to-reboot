@@ -22,6 +22,20 @@
   background-color: rgb(217, 217, 32);
   margin-bottom: 50%;
   display: block;
-  margin-top: 30%;
+  margin-top: 25%;
   margin-left: 45%;
+}
+#live {
+  height: 40px;
+  width: 120px;
+  border-radius: 20px;
+  background-color: red;
+  margin-top: 3%;
+  margin-left: 3%;
+  border: 2px solid black;
+}
+span {
+  line-height: 50px;
+  margin-left: 16px;
+  font-size: 35px;
 }
