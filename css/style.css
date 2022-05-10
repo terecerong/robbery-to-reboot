@@ -1,20 +1,27 @@
-#canvas{
+#canvas {
   height: 800px;
   width: 1200px;
   border: 3px solid black;
   margin: 0 auto;
   background-color: aquamarine;
 }
-.door{
+.door {
   display: inline-block;
   height: 200px;
   width: 100px;
   border: 3px solid;
   margin-top: 10%;
   margin-left: 18%;
+}
+.doorBrown {
   background-color: brown;
 }
-
+.doorBlack {
+  background-color: black;
+}
+.door:hover {
+  background-color: blue;
+}
 .snipper {
   height: 50px;
   width: 100px;
@@ -39,8 +46,7 @@ span {
   margin-left: 16px;
   font-size: 35px;
 }
-.time{
-
+.time {
   color: white;
   height: 40px;
   width: 60px;
@@ -52,5 +58,4 @@ span {
   position: absolute;
   text-align: center;
   line-height: 40px;
- 
 }
