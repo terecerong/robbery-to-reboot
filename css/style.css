@@ -39,3 +39,18 @@ span {
   margin-left: 16px;
   font-size: 35px;
 }
+.time{
+
+  color: white;
+  height: 40px;
+  width: 60px;
+  border-radius: 25px;
+  background-color: rgb(12, 5, 5);
+  margin-top: -50px;
+  margin-left: 1050px;
+  border: 2px solid grey;
+  position: absolute;
+  text-align: center;
+  line-height: 40px;
+ 
+}
