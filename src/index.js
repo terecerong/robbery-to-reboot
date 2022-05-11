@@ -1,34 +1,44 @@
 function RobberyToReboot() {
-    self = this
-    this.doorSprites = document.getElementsByClassName('door')
-    this.placeholders = document.getElementsByClassName('placeholder')
-    this.doorState = [false, false, false] // false = cerrado & true = open.
-    
-    this.openRandomDoor = function() {
-        const randomDoor = Math.floor(Math.random()* 3)
-        if (!this.doorState[randomDoor]) {
-            this.doorState[randomDoor] = true
-        }
-        this.placeholders[randomDoor].style.backgroundColor = 'blue'
+  self = this
+  this.doors = document.getElementsByClassName('door')
+  this.placeholders = document.getElementsByClassName('placeholder')
+  this.doorState = [false, false, false] // false = cerrado & true = open.
+
+  this.randomDoor = function () {
+    return Math.floor(Math.random() * 3)
+  }
+
+  this.openDoor = function (door) {
+    if (!self.doorState[door]) {
+      self.doors[door].classList.remove('doorBrown')
+      self.doors[door].classList.add('doorBlack')
+      self.doorState[door] = true
+      setTimeout(self.closeDoor, 1500, door)
+    }
+    this.placeholders[randomDoor].style.backgroundColor = 'blue'
+  }
+
+  this.closeDoor = function (door) {
+    console.log('close door')
+    if (self.doorState[door]) {
+      self.doors[door].classList.remove('doorBlack')
+      self.doors[door].classList.add('doorBrown')
+      self.doorState[door] = false
     }
 
-    /*this.paintDoor = function() {
-        if (this.doorSprites === 'false') {
-            this.doorSprites[randomDoor].classList.remove('doorBrown')
-            this.doorSprites[randomDoor].classList.add('doorBlack')
-        } 
-    }*/
-    //EN PROCESO
+  }
+  //EN PROCESO
 
-    this.start = function() {
-       let click = document.addEventListener('click', this.placeholders)
-       let timerId = setInterval (function () {
-        self.openRandomDoor()
-        // self.paintDoor()
-        console.log(self.doorState)
-        console.log(click)
-       }, 900)
-    }
+
+  this.start = function () {
+    let click = document.addEventListener('click', this.placeholders)
+    let timerId = setInterval(function () {
+      let doorSelected = self.randomDoor()
+      self.openDoor(doorSelected)
+
+      console.log(self.doorState)
+    }, 3000)
+  }
 }
 
 let robbery = new RobberyToReboot()
