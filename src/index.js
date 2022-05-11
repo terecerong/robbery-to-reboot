@@ -1,6 +1,7 @@
 function RobberyToReboot() {
     self = this
     this.doorSprites = document.getElementsByClassName('door')
+    this.placeholders = document.getElementsByClassName('placeholder')
     this.doorState = [false, false, false] // false = cerrado & true = open.
     
     this.openRandomDoor = function() {
@@ -8,6 +9,7 @@ function RobberyToReboot() {
         if (!this.doorState[randomDoor]) {
             this.doorState[randomDoor] = true
         }
+        this.placeholders[randomDoor].style.backgroundColor = 'blue'
     }
 
     /*this.paintDoor = function() {
@@ -19,10 +21,12 @@ function RobberyToReboot() {
     //EN PROCESO
 
     this.start = function() {
+       let click = document.addEventListener('click', this.placeholders)
        let timerId = setInterval (function () {
         self.openRandomDoor()
-        self.paintDoor()
+        // self.paintDoor()
         console.log(self.doorState)
+        console.log(click)
        }, 900)
     }
 }
