@@ -1,10 +1,12 @@
+
 function RobberyToReboot() {
   self = this
+  this.elemTime = document.getElementById('timer')
+  this.timerValue = 5
   this.doors = document.getElementsByClassName('door')
   this.placeholders = document.getElementsByClassName('placeholder')
-  console.log(this.placeholders)
   this.doorState = [false, false, false] // false = cerrado & true = open.
-  
+
   this.randomDoor = function () {
     return Math.floor(Math.random() * 3)
   }
@@ -12,48 +14,55 @@ function RobberyToReboot() {
   this.openDoor = function (door) {
     if (!self.doorState[door]) {
       self.doors[door].classList.remove('doorBrown')
-      self.doors[door].classList.add('doorBlack')
-      self.placeholders[door].style.backgroundColor = 'blue'
+      self.doors[door].classList.add('placeholderEnemy')
+      self.placeholders[door].style.display = 'block'
       self.doorState[door] = true
       setTimeout(self.closeDoor, 1500, door)
     }
-    
   }
 
   this.closeDoor = function (door) {
-    console.log('close door')
     if (self.doorState[door]) {
-      self.doors[door].classList.remove('doorBlack')
+      self.doors[door].classList.remove('placeholderEnemy')
       self.doors[door].classList.add('doorBrown')
-      self.placeholders[door].style.backgroundColor = 'transparent'
+      self.placeholders[door].style.display = 'none'
       self.doorState[door] = false
     }
-
   }
-  //EN PROCESO
+
   this.addClickEvent = function () {
-      for (var i = 0; i < this.placeholders.length; i++) {
-        this.placeholders[i].addEventListener('click', function(e) {
-            var idDoor = this.getAttribute('id') 
-            // if (e.target === false) {
-            //     console.log('adios')
-            // }
-            console.log(idDoor)
-            // console.log(e.target)
-        })
-      }
+    for (var i = 0; i < this.placeholders.length; i++) {
+      this.placeholders[i].addEventListener('click', function (e) {
+        var idDoor = e.target.getAttribute('id')
+        var doorNumber = parseInt(idDoor[idDoor.length - 1]) - 1
+        console.log(doorNumber)
+        self.timerValue += 5
+        self.elemTime.innerHTML = self.timerValue
+        self.placeholders[doorNumber].classList.remove('placeholderEnemy')
+        self.placeholders[doorNumber].classList.add('placeholderEnemyDied')
+      })
+    }
   }
 
+  this.timer = function () {
+    var timerCount = setInterval(function () {
+      self.timerValue -= 1
+      self.elemTime.innerHTML = self.timerValue
+      if ( self.timerValue <= 0 ) {
+        clearInterval(timerCount)
+      }
+    }, 1000)
+  }
 
   this.start = function () {
-    this.addClickEvent ()
-
+    this.elemTime.innerHTML = this.timerValue
+    this.timer()
+    this.addClickEvent()
     let timerId = setInterval(function () {
       let doorSelected = self.randomDoor()
       self.openDoor(doorSelected)
+    }, 2000)
 
-      console.log(self.doorState)
-    }, 3000)
   }
 }
 

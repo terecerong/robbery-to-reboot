@@ -19,16 +19,7 @@
 .doorBrown {
   background-color: brown;
 }
-.doorBlack {
-  background-color: black;
-  background-image: url(/assets/images/i0vzlwsusgg31-removebg-preview.png);
-  background-size:115px;
-  background-position: 70%;
-  background-repeat: no-repeat;
-}
-.door:hover {
-  background-color: blue;
-}
+
 .snipper {
   height: 50px;
   width: 100px;
@@ -68,9 +59,21 @@ span {
 }
 
 .placeholder {
-  width: 80px;
-  height: 180px;
-  border: 3px solid red;
-  margin: auto;
-  margin-top: 10px;
+  display: none;
+  height: 115px;
+  width: 62px;
+  /* margin-top: 19%; */
+  margin-left: 0.4%;
+}
+.placeholderEnemy {
+  background-color: black;
+  background-image: url(/assets/images/i0vzlwsusgg31-removebg-preview.png);
+  background-size:115px;
+  background-position: 70%;
+  background-repeat: no-repeat;
+}
+.placeholderEnemyDied{
+  background-image: url(/assets/images/Diseno_sin_titulo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
