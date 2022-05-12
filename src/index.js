@@ -2,7 +2,7 @@ function RobberyToReboot() {
   self = this
   this.doors = document.getElementsByClassName('door')
   this.doorState = [false, false, false] // false = cerrado & true = open.
-
+  
   this.randomDoor = function () {
     return Math.floor(Math.random() * 3)
   }
