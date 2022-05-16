@@ -4,6 +4,7 @@
   border: 3px solid black;
   margin: 0 auto;
   background-image: url(/assets/images/la-casa-de-papel.png);
+  cursor: crosshair;
 }
 .door {
   display: inline-block;
@@ -66,11 +67,25 @@ span {
   text-align: center;
   line-height: 40px;
 }
-
 .placeholder {
-  width: 80px;
-  height: 180px;
-  border: 3px solid red;
+  height: 115px;
+  width: 62px;
   margin: auto;
   margin-top: 10px;
+}
+.pantalla-inicio {
+  background-image: url(/assets/images/money-heist.jpg);
+  background-size: contain;
+  height: 850px;
+  width: 100%;
+  z-index: 99;
+}
+button {
+  height: 50px;
+  width: 200px;
+  border-radius: 20px;
+  background-color: rgb(200, 7, 7);
+  display: inline-block;
+  margin-top: 40%;
+  margin-left: 40%;
 }
