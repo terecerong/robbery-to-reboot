@@ -3,10 +3,10 @@ function RobberyToReboot() {
   self = this
   this.elemTime = document.getElementById('timer')
   this.timerValue = 5
+  this.lives = 3
   this.doors = document.getElementsByClassName('door')
   this.placeholders = document.getElementsByClassName('placeholder')
   this.doorState = [false, false, false] // false = cerrado & true = open.
-
   this.randomDoor = function () {
     return Math.floor(Math.random() * 3)
   }
@@ -27,6 +27,9 @@ function RobberyToReboot() {
       self.doors[door].classList.add('doorBrown')
       self.placeholders[door].style.display = 'none'
       self.doorState[door] = false
+      console.log(self.placeholders[door].classList)
+  
+     setTimeout(self.changeDiedToEnemy, 500, door)
     }
   }
 
@@ -35,13 +38,23 @@ function RobberyToReboot() {
       this.placeholders[i].addEventListener('click', function (e) {
         var idDoor = e.target.getAttribute('id')
         var doorNumber = parseInt(idDoor[idDoor.length - 1]) - 1
-        console.log(doorNumber)
-        self.timerValue += 5
-        self.elemTime.innerHTML = self.timerValue
-        self.placeholders[doorNumber].classList.remove('placeholderEnemy')
-        self.placeholders[doorNumber].classList.add('placeholderEnemyDied')
+        if(self.lives > 0 && self.timerValue > 0){
+          self.timerValue += 5
+          self.elemTime.innerHTML = self.timerValue
+          self.placeholders[doorNumber].classList.remove('placeholderEnemy')
+          self.placeholders[doorNumber].classList.add('placeholderEnemyDied')
+        }else {
+          alert("game over")
+        }
       })
     }
+    //return doorNumber
+  }
+
+  this.changeDiedToEnemy= function(door) {
+    self.placeholders[door].classList.remove('placeholderEnemyDied')
+    self.placeholders[door].classList.add('placehoderEnemy')
+    
   }
 
   this.timer = function () {
@@ -52,35 +65,25 @@ function RobberyToReboot() {
         clearInterval(timerCount)
       }
     }, 1000)
+
+  }
+
+  this.gameOver = function() {
+    alert('GAME OVER')
   }
 
   this.start = function () {
     this.elemTime.innerHTML = this.timerValue
     this.timer()
+    // this.checkLives()
     this.addClickEvent()
     let timerId = setInterval(function () {
       let doorSelected = self.randomDoor()
       self.openDoor(doorSelected)
     }, 2000)
-
   }
-}
 
+}
 let robbery = new RobberyToReboot()
 
 robbery.start()
-/*let door = document.getElementsByClassName('door')
-let time = setInterval(function() {
-    
-    if (door[randomDoor].classList.contains('doorBrown')) {
-        door[randomDoor].classList.remove('doorBrown')
-        door[randomDoor].classList.add('doorBlack')
-        } else {
-
-                door[randomDoor].classList.remove('doorBlack')
-                door[randomDoor].classList.add('doorBrown') 
-    }
-    console.log(door[randomDoor])
-    
-}, 500);
-console.log(door[0].classList.contains('doorBrown'))*/
