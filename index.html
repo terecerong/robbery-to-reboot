@@ -7,13 +7,12 @@
   <title>Document</title>
   <link rel="stylesheet" href="/css/style.css">
   <script src="./src/index.js" defer></script>
-
-
+  <script src="./assets/sound/Click.wav"></script>
 </head>
 <body>
-  
-  <div class="pantalla-inicio">
-    <button>START</button>
+
+  <div id="pantallaInicio">
+     <button  onclick="sound(); robbery.start()">START</button>
   </div>
 
   <div id="canvas">
@@ -24,7 +23,6 @@
     </div>
 
     <div id="timer" class = "time">2727</div>
-
     <div id="door1" class="door doorBrown">
       <div id="placeholder1" class="placeholder"></div>
     </div>
@@ -36,6 +34,9 @@
     </div>
 
     <div id="snipper" class="snipper"></div>
+  </div>
+  <div id="gameOver">
+    <button id="startAgain" onclick="robbery.start()">Start Again</button>
   </div>
 </body>
 </html>
