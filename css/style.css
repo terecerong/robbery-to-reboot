@@ -3,7 +3,7 @@
   width: 1200px;
   border: 3px solid black;
   margin: 0 auto;
-  background-image: url(/assets/images/la-casa-de-papel!.png);
+  background-image: url(../assets/images/la-casa-de-papel!.png);
   background-size: cover;
   cursor:crosshair;
   display: none;
@@ -19,7 +19,7 @@
   margin-left:41% ;
 }
 .doorBrown {
-  background-image: url(/assets/images/png-clipart-window-screens-screen-door-wrought-iron-iron-door-glass-window-thumbnail-removebg-preview.png);
+  background-image: url(../assets/images/png-clipart-window-screens-screen-door-wrought-iron-iron-door-glass-window-thumbnail-removebg-preview.png);
   background-size: 95px;
   background-repeat: no-repeat;
   background-position:-12px;
@@ -31,7 +31,7 @@
   margin-top: 10%;
   margin-left: 45%;
   background-size: 160px;
-  background-image:url(/assets/images/policia-removebg-preview.png);
+  background-image:url(../assets/images/policia-removebg-preview.png);
   background-repeat: no-repeat;
 }
 #lives {
@@ -49,7 +49,7 @@
   margin-left: 5px;
   display: inline-block;
   background-size:cover;
-  background-image: url(/assets/images/life-icon-9-removebg-preview.png);
+  background-image: url(../assets/images/life-icon-9-removebg-preview.png);
 }
 .time {
   color: white;
@@ -70,28 +70,39 @@
   width: 70px;
   margin-left: 0.4%;
 }
+.placeholderVictim {
+  height: 115px;
+  width: 70px;
+  background-image: url(../assets/images/Victim.png);
+  background-color: rgb(99, 96, 96);
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position:0px 10px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.35);
+
+}
 .placeholderEnemy {
   background-color: rgb(99, 96, 96);
-  background-image: url(/assets/images/enemy.png);
+  background-image: url(../assets/images/enemy.png);
   background-size: 80px;
-  /* background-position: 100%; */
   background-repeat: no-repeat;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.35);
 }
 .placeholderEnemyDied {
-  background-image: url(/assets/images/Diseno_sin_titulo.png);
+  background-image: url(../assets/images/Diseno_sin_titulo.png);
   background-repeat: no-repeat;
   background-color: rgb(99, 96, 96);
   background-size: 70px;
 }
-button {
+#start {
   height: 50px;
   width: 400px;
   border-radius: 20px;
   background-color: rgb(200, 7, 7);
   display: inline-block;
-  margin-top: 45%;
-  margin-left: 35%;
+  top: 80vh;
+  left: 37vw;
+  position:absolute;
 }
 #startAgain{
   height: 50px;
@@ -108,7 +119,7 @@ button {
   display: block;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(/assets/images/money-heist.jpg);
+  background-image: url(../assets/images/money-heist.jpg);
 }
 #gameOver{
   height: 850px;
@@ -117,5 +128,5 @@ button {
   margin-left: 40px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(/assets/images/gameOver.png);
+  background-image: url(../assets/images/gameOver.png);
 }
