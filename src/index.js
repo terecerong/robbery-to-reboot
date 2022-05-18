@@ -158,11 +158,11 @@ function RobberyToReboot() {
 let robbery = new RobberyToReboot()
 robbery.addClickEvent()
 
-var audioGame = new Audio('../assets/sound/AudioGame.mp3')
-var disparo = new Audio('../assets/sound/Disparo.wav')
-var gameOver = new Audio('../assets/sound/GameOver.wav')
+var audioGame = new Audio('./assets/sound/AudioGame.mp3')
+var disparo = new Audio('./assets/sound/Disparo.wav')
+var gameOver = new Audio('./assets/sound/GameOver.wav')
 
 function sound() {
-  var snd = new Audio('../assets/sound/Click.wav')
+  var snd = new Audio('./assets/sound/Click.wav')
   snd.play()
 }
